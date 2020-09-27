@@ -1,0 +1,15 @@
+type Query {
+  criminalById(id: ID): Criminal
+}
+
+type Criminal {
+  id: ID
+  name: String
+  appearance: String
+  charge: CriminalCharge
+}
+
+type CriminalCharge {
+  id: ID
+  description: String
+}
