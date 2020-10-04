@@ -40,7 +40,7 @@ public class GraphQLDataFetchers {
             String criminalId = dataFetchingEnvironment.getArgument("id");
             return criminals
                     .stream()
-                    .filter(book -> book.get("id").equals(criminalId))
+                    .filter(criminal -> criminal.get("id").equals(criminalId))
                     .findFirst()
                     .orElse(null);
         };
@@ -48,7 +48,7 @@ public class GraphQLDataFetchers {
 
     public DataFetcher getCriminalCharge() {
         return dataFetchingEnvironment -> {
-            Map<String,String> criminal = dataFetchingEnvironment.getSource();
+            Map<String, String> criminal = dataFetchingEnvironment.getSource();
             String chargeId = criminal.get("chargeId");
             return criminalCharges
                     .stream()
