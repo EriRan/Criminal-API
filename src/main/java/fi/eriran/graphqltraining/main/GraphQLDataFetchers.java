@@ -30,7 +30,7 @@ public class GraphQLDataFetchers {
             ImmutableMap.of("id", "1",
                     "description", "Terrorism"),
             ImmutableMap.of("id", "2",
-                    "description", "Being overly cool"),
+                    "description", "Being way too cool"),
             ImmutableMap.of("id", "3",
                     "description", "Financial crimes")
     );

@@ -46,7 +46,7 @@ public class GraphQLProvider {
                 .type(newTypeWiring("Query")
                         .dataFetcher("criminalById", graphQLDataFetchers.getCriminalById()))
                 .type(newTypeWiring("Criminal")
-                        .dataFetcher("criminalCharge", graphQLDataFetchers.getCriminalCharge()))
+                        .dataFetcher("charge", graphQLDataFetchers.getCriminalCharge()))
                 .build();
     }
 
