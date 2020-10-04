@@ -16,11 +16,11 @@ public class GraphQLDataFetchers {
                     "name", "Osama bin Laden",
                     "appearance", "Long black beard",
                     "chargeId", "1"),
-            ImmutableMap.of("id", "1",
+            ImmutableMap.of("id", "2",
                     "name", "Slick Joe",
                     "appearance", "Handsome face, white mohawk, red shirt with a text \"Ouch!\" on it",
                     "chargeId", "2"),
-            ImmutableMap.of("id", "1",
+            ImmutableMap.of("id", "3",
                     "name", "Robert von Lomboc",
                     "appearance", "Slim stature. Always wearing white English judge wig",
                     "chargeId", "3")
@@ -29,10 +29,10 @@ public class GraphQLDataFetchers {
     private static List<Map<String, String>> criminalCharges = Arrays.asList(
             ImmutableMap.of("id", "1",
                     "description", "Terrorism"),
-            ImmutableMap.of("id", "1",
+            ImmutableMap.of("id", "2",
                     "description", "Being overly cool"),
-            ImmutableMap.of("id", "1",
-                    "description", "Terrorism")
+            ImmutableMap.of("id", "3",
+                    "description", "Financial crimes")
     );
 
     public DataFetcher getCriminalById() {

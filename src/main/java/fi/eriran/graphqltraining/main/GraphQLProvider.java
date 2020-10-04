@@ -24,12 +24,7 @@ public class GraphQLProvider {
     private GraphQL graphQL;
 
     @Autowired
-    GraphQLDataFetchers graphQLDataFetchers;
-
-    @Bean
-    public GraphQL graphQL() {
-        return graphQL;
-    }
+    private GraphQLDataFetchers graphQLDataFetchers;
 
     @PostConstruct
     public void init() throws IOException {
@@ -50,8 +45,13 @@ public class GraphQLProvider {
         return RuntimeWiring.newRuntimeWiring()
                 .type(newTypeWiring("Query")
                         .dataFetcher("criminalById", graphQLDataFetchers.getCriminalById()))
-                .type(newTypeWiring("Book")
+                .type(newTypeWiring("Criminal")
                         .dataFetcher("criminalCharge", graphQLDataFetchers.getCriminalCharge()))
                 .build();
+    }
+
+    @Bean
+    public GraphQL graphQL() {
+        return graphQL;
     }
 }
