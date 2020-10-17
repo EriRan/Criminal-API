@@ -1,6 +1,7 @@
 version: "3.8"
 services:
   api:
-    build: .
+    image: graphql-training
+    container_name: api
     ports:
     - "8080:8080"
