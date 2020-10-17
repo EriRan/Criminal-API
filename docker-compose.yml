@@ -4,4 +4,12 @@ services:
     image: graphql-training
     container_name: api
     ports:
-    - "8080:8080"
+      - "8080:8080"
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: testdb
+    ports:
+      - "5432:5432" #The default port of postgresql
