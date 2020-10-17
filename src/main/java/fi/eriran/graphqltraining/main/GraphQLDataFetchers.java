@@ -35,7 +35,7 @@ public class GraphQLDataFetchers {
                     "description", "Financial crimes")
     );
 
-    public DataFetcher getCriminalById() {
+    public DataFetcher<Map<String, String>> getCriminalById() {
         return dataFetchingEnvironment -> {
             String criminalId = dataFetchingEnvironment.getArgument("id");
             return criminals
@@ -46,7 +46,7 @@ public class GraphQLDataFetchers {
         };
     }
 
-    public DataFetcher getCriminalCharge() {
+    public DataFetcher<Map<String, String>> getCriminalCharge() {
         return dataFetchingEnvironment -> {
             Map<String, String> criminal = dataFetchingEnvironment.getSource();
             String chargeId = criminal.get("chargeId");
