@@ -4,6 +4,7 @@ services:
   # to be there
   database:
     image: postgres
+    container_name: test_database
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: testdb

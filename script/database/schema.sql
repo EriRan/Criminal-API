@@ -1,3 +1,5 @@
+create schema criminal;
+
 CREATE TABLE criminal.criminal (
 	id serial NOT NULL,
 	"name" varchar(500) NOT NULL,
