@@ -1,15 +1,16 @@
 version: "3.8"
 services:
-  api:
-    image: graphql-training
-    container_name: api
-    ports:
-      - "8080:8080"
+  #Database has to be initialized first then API. The tests in API will expect the database
+  # to be there
   database:
     image: postgres
-    restart: always
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: testdb
     ports:
       - "5432:5432" #The default port of postgresql
+  api:
+    image: graphql-training
+    container_name: api
+    ports:
+      - "8080:8080"
