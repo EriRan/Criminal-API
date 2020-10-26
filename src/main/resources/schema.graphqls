@@ -6,7 +6,7 @@ type Criminal {
   id: ID
   name: String
   appearance: String
-  charge: CriminalCharge
+  charge: [CriminalCharge]
 }
 
 type CriminalCharge {

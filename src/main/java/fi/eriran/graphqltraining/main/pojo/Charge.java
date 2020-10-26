@@ -2,9 +2,15 @@ package fi.eriran.graphqltraining.main.pojo;
 
 public class Charge {
 
+    private Integer id;
     private String description;
 
-    public Charge() {
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDescription() {

@@ -1,14 +1,25 @@
 package fi.eriran.graphqltraining.main.pojo;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class Criminal {
 
+    private Integer id;
     private String name;
-    private String description;
+    private String appearance;
     private Collection<Charge> charges;
 
     public Criminal() {
+        charges = new ArrayList<>();
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -19,12 +30,12 @@ public class Criminal {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAppearance() {
+        return appearance;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setAppearance(String appearance) {
+        this.appearance = appearance;
     }
 
     public Collection<Charge> getCharges() {
