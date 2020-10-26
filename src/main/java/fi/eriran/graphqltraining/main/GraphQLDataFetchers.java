@@ -11,7 +11,6 @@ import java.util.Map;
 @Component
 public class GraphQLDataFetchers {
 
-
     private static List<Map<String, String>> criminals = Arrays.asList(
             ImmutableMap.of("id", "1",
                     "name", "Osama bin Laden",
