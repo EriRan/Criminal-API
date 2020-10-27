@@ -21,11 +21,6 @@
             <artifactId>jooq</artifactId>
             <version>3.14.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.jooq</groupId>
-            <artifactId>jooq-meta</artifactId>
-            <version>3.14.0</version>
-        </dependency>
     </dependencies>
 
     <build>
