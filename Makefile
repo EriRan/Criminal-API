@@ -1,12 +1,15 @@
-run: build
-	docker-compose up --build --detach
-	echo "Waiting 5s for db to start up..."
-	sleep 5
-	echo "Continuing"
-	./script/docker_data_init.sh
+run: build-database build-api
+	docker-compose up --detach --build api
 
-build:
+build-api:
 	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training
+
+build-database:
+	docker-compose up --detach --build database
+	echo "Waiting 5 seconds for the database to start up..."
+	sleep 5
+	echo "Adding initial data..."
+	./script/docker_data_init.sh
 
 stop:
 	docker-compose down
