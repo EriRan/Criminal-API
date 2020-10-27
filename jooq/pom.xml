@@ -15,12 +15,6 @@
     <name>graphql-training-jooq</name>
     <description>Module for generating JOOQ classes for graphqltraining core module</description>
 
-    <properties>
-        <java.version>11</java.version>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.jooq</groupId>
