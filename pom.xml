@@ -18,8 +18,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>graphql_training_jooq</module>
-        <module>graphql_training_core</module>
+        <module>jooq</module>
+        <module>core</module>
     </modules>
 
 </project>

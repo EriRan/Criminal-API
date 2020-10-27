@@ -10,7 +10,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>graphqltraining.core</artifactId>
+    <artifactId>core</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>graphql training core</name>
     <description>Logic of the actual API</description>
@@ -78,7 +78,7 @@
         </dependency>
         <dependency>
             <groupId>fi.eriran</groupId>
-            <artifactId>graphqltraining.jooq</artifactId>
+            <artifactId>jooq</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
