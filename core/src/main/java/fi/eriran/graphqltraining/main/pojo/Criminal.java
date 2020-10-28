@@ -1,12 +1,17 @@
 package fi.eriran.graphqltraining.main.pojo;
 
+import javax.persistence.Column;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 public class Criminal {
 
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "appearance")
     private String appearance;
     private Collection<Charge> charges;
 

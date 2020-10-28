@@ -1,8 +1,12 @@
 package fi.eriran.graphqltraining.main.pojo;
 
+import javax.persistence.Column;
+
 public class Charge {
 
+    @Column(name = "id")
     private Integer id;
+    @Column(name = "description")
     private String description;
 
     public Integer getId() {
