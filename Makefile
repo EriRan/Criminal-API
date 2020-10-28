@@ -6,7 +6,7 @@ build-api:
 	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training
 
 build-database:
-	docker-compose up --detach --build database
+	docker-compose up --detach --build test_database
 	echo "Waiting 5 seconds for the database to start up..."
 	sleep 5
 	echo "Adding initial data..."
