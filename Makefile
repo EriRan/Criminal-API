@@ -2,6 +2,7 @@ run: build-database build-api
 	docker-compose up --detach --build api
 
 build-api:
+	./mvnw clean
 	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training
 
 build-database:
