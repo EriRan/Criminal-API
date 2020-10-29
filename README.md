@@ -1,11 +1,25 @@
 # README
-## How to run
 
-Run "make". This will create two docker containers: api and db using postgresql
+## Requirements
+
+* make (to run build scripts more conveniently)
+* Docker (For the containers)
+
+## How to run for the first time
+
+Run "make init". This will build and deploy both api and database docker images
+
+## How to rebuild
+
+Run "make". This will start the database if it is not started already and rebuild the api image
 
 ## How to stop all containers
 
 Run "make stop"
+
+## How to do a total reset
+
+Run "make reset". This will shut down all containers and remove the data from the database
 
 ## How to run a query
 

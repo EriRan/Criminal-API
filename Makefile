@@ -1,9 +1,16 @@
-run: build-database build-api
-	docker-compose up --detach --build api
+run: start-database build-api
+
+init: build-database build-api
+
+reset: stop-containers
+	docker volume rm graphql_training_test_data
+
+stop: stop-containers
 
 build-api:
 	./mvnw clean
 	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training
+	docker-compose up --detach --build api
 
 build-database:
 	docker-compose up --detach --build test_database
@@ -12,5 +19,8 @@ build-database:
 	echo "Adding initial data..."
 	./script/docker_data_init.sh
 
-stop:
+start-database:
+	docker-compose up --detach test_database
+
+stop-containers:
 	docker-compose down
