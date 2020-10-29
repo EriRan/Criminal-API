@@ -5,21 +5,18 @@
 * make (to run build scripts more conveniently)
 * Docker (For the containers)
 
-## How to run for the first time
+## Quick start
 
-Run "make init". This will build and deploy both api and database docker images
+Run "make init". This will build and deploy both api and database docker images.
 
-## How to rebuild
+## Other make commands
 
-Run "make". This will start the database if it is not started already and rebuild the api image
-
-## How to stop all containers
-
-Run "make stop"
-
-## How to do a total reset
-
-Run "make reset". This will shut down all containers and remove the data from the database
+* make 
+  * This will start the database if it is not started already and rebuild the api image
+* make stop
+  * Stop all containers but leave the Postgresql data intact
+* make reset
+  * Stop all containers and remove Postgresql data
 
 ## How to run a query
 
