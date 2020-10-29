@@ -5,6 +5,8 @@ services:
   test_database:
     image: postgres
     container_name: test_database
+    volumes:
+      - test_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: testdb
@@ -15,3 +17,5 @@ services:
     container_name: api
     ports:
       - "8080:8080"
+volumes:
+  test_data:
