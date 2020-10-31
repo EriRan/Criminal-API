@@ -2,6 +2,7 @@ package fi.eriran.graphqltraining.main;
 
 import com.google.common.io.Resources;
 import fi.eriran.graphqltraining.main.resolver.ChargeResolver;
+import fi.eriran.graphqltraining.main.resolver.Mutation;
 import fi.eriran.graphqltraining.main.resolver.Query;
 import graphql.GraphQL;
 import graphql.kickstart.tools.SchemaParser;
@@ -23,6 +24,8 @@ public class GraphQLProvider {
     @Autowired
     private Query query;
     @Autowired
+    private Mutation mutation;
+    @Autowired
     private ChargeResolver chargeResolver;
 
     @PostConstruct
@@ -37,7 +40,7 @@ public class GraphQLProvider {
     private GraphQLSchema buildSchema(String content) {
         return SchemaParser.newParser()
                 .schemaString(content)
-                .resolvers(query, chargeResolver)
+                .resolvers(query, mutation, chargeResolver)
                 .build()
                 .makeExecutableSchema();
     }

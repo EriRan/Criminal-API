@@ -2,6 +2,10 @@ type Query {
   criminalById(id: ID!): Criminal
 }
 
+type Mutation {
+
+}
+
 type Criminal {
   id: ID!
   name: String!
@@ -16,4 +20,5 @@ type Charge {
 
 schema {
   query: Query
+  mutation: Mutation
 }
