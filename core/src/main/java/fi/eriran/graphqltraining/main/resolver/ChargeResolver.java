@@ -24,7 +24,7 @@ public class ChargeResolver implements GraphQLResolver<Criminal> {
         if (criminal == null) {
             return Collections.emptyList();
         }
-        logger.debug("charges for criminal id: {}", criminal.getId());
+        logger.debug("Charges for criminal id: {}", criminal.getId());
         Collection<Charge> charges = chargeDao.getCharges(criminal.getId());
         logger.debug("Found {} charges", charges.size());
         return charges;
