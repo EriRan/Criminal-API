@@ -46,6 +46,11 @@
             <artifactId>graphql-java</artifactId>
             <version>15.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.graphql-java-kickstart</groupId>
+            <artifactId>graphql-java-tools</artifactId>
+            <version>6.2.0</version>
+        </dependency>
 
         <!-- Pojo related -->
         <dependency>
