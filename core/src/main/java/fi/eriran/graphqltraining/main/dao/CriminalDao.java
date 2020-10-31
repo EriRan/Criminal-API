@@ -12,7 +12,7 @@ public class CriminalDao {
     @Autowired
     private DSLContext ctx;
 
-    public Criminal getCriminal(Integer id) {
+    public Criminal get(Integer id) {
         return ctx.selectFrom(Tables.CRIMINAL_)
                 .where(Tables.CRIMINAL_.ID.eq(id))
                 .fetchOneInto(Criminal.class);
