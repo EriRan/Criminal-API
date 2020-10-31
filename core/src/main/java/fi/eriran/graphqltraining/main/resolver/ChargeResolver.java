@@ -6,16 +6,16 @@ import fi.eriran.graphqltraining.main.pojo.Criminal;
 import graphql.kickstart.tools.GraphQLResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.Collections;
 
 @Component
 public class ChargeResolver implements GraphQLResolver<Criminal> {
 
-    @Autowired
+    @Resource
     private ChargeDao chargeDao;
 
     private final Logger logger = LoggerFactory.getLogger(ChargeResolver.class);
