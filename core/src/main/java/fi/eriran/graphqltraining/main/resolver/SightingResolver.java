@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Component
-public class SightingResolver implements GraphQLResolver<Sighting> {
+public class SightingResolver implements GraphQLResolver<Criminal> {
 
     @Resource
     private SightingDao sightingDao;
