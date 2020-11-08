@@ -1,6 +1,7 @@
 package fi.eriran.graphqltraining.main.pojo;
 
 import javax.persistence.Column;
+import java.time.LocalDateTime;
 
 public class Sighting {
     @Column(name = "id")
@@ -11,6 +12,8 @@ public class Sighting {
     private String address;
     @Column(name = "description")
     private String description;
+    @Column(name = "time_of_sighting")
+    private LocalDateTime timeOfSighting;
 
     public Integer getId() {
         return id;
@@ -42,5 +45,13 @@ public class Sighting {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getTimeOfSighting() {
+        return timeOfSighting;
+    }
+
+    public void setTimeOfSighting(LocalDateTime timeOfSighting) {
+        this.timeOfSighting = timeOfSighting;
     }
 }
