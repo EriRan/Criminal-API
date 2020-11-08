@@ -1,18 +1,18 @@
 package fi.eriran.graphqltraining.main.resolver;
 
-import fi.eriran.graphqltraining.main.dao.ChargeDao;
 import fi.eriran.graphqltraining.main.dao.SightingDao;
-import fi.eriran.graphqltraining.main.pojo.Charge;
 import fi.eriran.graphqltraining.main.pojo.Criminal;
 import fi.eriran.graphqltraining.main.pojo.Sighting;
 import graphql.kickstart.tools.GraphQLResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.Collections;
 
+@Component
 public class SightingResolver implements GraphQLResolver<Sighting> {
 
     @Resource
