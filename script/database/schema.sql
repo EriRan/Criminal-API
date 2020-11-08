@@ -36,8 +36,10 @@ CREATE TABLE criminal.sighting (
 	area varchar(500) NULL,
 	address varchar(500) NULL,
 	description text NULL,
+	created_at timestamptz(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	time_of_sighting timestamptz(0) NOT NULL,
 	CONSTRAINT sighting_pk PRIMARY KEY (id),
-	CONSTRAINT sighting_criminal_fk FOREIGN KEY (id) REFERENCES criminal.criminal(id) ON UPDATE RESTRICT ON DELETE RESTRICT
+	CONSTRAINT sighting_fk FOREIGN KEY (criminal_id) REFERENCES criminal.criminal(id) ON UPDATE RESTRICT ON DELETE RESTRICT
 );
 COMMENT ON TABLE criminal.sighting IS 'Locations where a criminal has been spotted';
 
@@ -75,3 +77,18 @@ VALUES('Being way too cool', 2, 3, '2020-11-01');
 INSERT INTO criminal.charge
 (description, criminal_id, crime_type_id, charged_at)
 VALUES('Financial crimes', 3, 1, '2020-11-01');
+
+INSERT INTO criminal.sighting
+(criminal_id, area, address, description, time_of_sighting)
+VALUES(1, 'New York', '23 South Bulevard', 'Seen buying a bagel', '2020-11-01');
+INSERT INTO criminal.sighting
+(criminal_id, area, address, description, time_of_sighting)
+VALUES(1, 'New York', '10 South Bulevard', E'Loitering at Macy\'s', '2020-05-01');
+
+INSERT INTO criminal.sighting
+(criminal_id, area, address, description, time_of_sighting)
+VALUES(2, 'London', '10 South Bulevard', 'Bought a donut', '2019-01-01');
+
+INSERT INTO criminal.sighting
+(criminal_id, area, address, description, time_of_sighting)
+VALUES(3, 'Helsinki', 'Albertinkatu 3', 'Spoke with a stranger before detectives losing sight of him', '2020-03-01');
