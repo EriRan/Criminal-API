@@ -1,4 +1,4 @@
-package fi.eriran.graphqltraining.main.resolver;
+package fi.eriran.criminalapi.main.resolver;
 
 import graphql.scalars.ExtendedScalars;
 import graphql.schema.GraphQLScalarType;

@@ -1,8 +1,8 @@
-package fi.eriran.graphqltraining.main.resolver;
+package fi.eriran.criminalapi.main.resolver;
 
-import fi.eriran.graphqltraining.main.dao.ChargeDao;
-import fi.eriran.graphqltraining.main.pojo.Charge;
-import fi.eriran.graphqltraining.main.pojo.Criminal;
+import fi.eriran.criminalapi.main.dao.ChargeDao;
+import fi.eriran.criminalapi.main.pojo.Charge;
+import fi.eriran.criminalapi.main.pojo.Criminal;
 import graphql.kickstart.tools.GraphQLResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

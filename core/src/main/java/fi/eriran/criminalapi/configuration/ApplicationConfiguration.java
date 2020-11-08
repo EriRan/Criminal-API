@@ -1,4 +1,4 @@
-package fi.eriran.graphqltraining.configuration;
+package fi.eriran.criminalapi.configuration;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;

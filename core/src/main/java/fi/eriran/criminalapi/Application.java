@@ -1,13 +1,13 @@
-package fi.eriran.graphqltraining;
+package fi.eriran.criminalapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GraphqlTrainingApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GraphqlTrainingApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

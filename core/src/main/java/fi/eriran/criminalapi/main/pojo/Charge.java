@@ -1,4 +1,4 @@
-package fi.eriran.graphqltraining.main.pojo;
+package fi.eriran.criminalapi.main.pojo;
 
 import javax.persistence.Column;
 

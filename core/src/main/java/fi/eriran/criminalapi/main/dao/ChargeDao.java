@@ -1,7 +1,7 @@
-package fi.eriran.graphqltraining.main.dao;
+package fi.eriran.criminalapi.main.dao;
 
 import fi.eriran.generated.jooq.Tables;
-import fi.eriran.graphqltraining.main.pojo.Charge;
+import fi.eriran.criminalapi.main.pojo.Charge;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

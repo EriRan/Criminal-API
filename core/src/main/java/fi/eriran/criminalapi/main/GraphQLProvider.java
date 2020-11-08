@@ -1,11 +1,11 @@
-package fi.eriran.graphqltraining.main;
+package fi.eriran.criminalapi.main;
 
 import com.google.common.io.Resources;
-import fi.eriran.graphqltraining.main.resolver.AdditionalScalars;
-import fi.eriran.graphqltraining.main.resolver.ChargeResolver;
-import fi.eriran.graphqltraining.main.resolver.Mutation;
-import fi.eriran.graphqltraining.main.resolver.Query;
-import fi.eriran.graphqltraining.main.resolver.SightingResolver;
+import fi.eriran.criminalapi.main.resolver.AdditionalScalars;
+import fi.eriran.criminalapi.main.resolver.ChargeResolver;
+import fi.eriran.criminalapi.main.resolver.Mutation;
+import fi.eriran.criminalapi.main.resolver.Query;
+import fi.eriran.criminalapi.main.resolver.SightingResolver;
 import graphql.GraphQL;
 import graphql.kickstart.tools.SchemaParser;
 import graphql.schema.GraphQLSchema;

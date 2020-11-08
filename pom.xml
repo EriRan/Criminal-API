@@ -17,7 +17,7 @@
     </properties>
 
     <groupId>fi.eriran</groupId>
-    <artifactId>graphqltraining</artifactId>
+    <artifactId>criminal-api</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>graphql-training</name>
     <description>Project to learn using Graphql and Spring Boot</description>

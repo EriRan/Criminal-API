@@ -1,7 +1,7 @@
-package fi.eriran.graphqltraining.main.resolver;
+package fi.eriran.criminalapi.main.resolver;
 
-import fi.eriran.graphqltraining.main.dao.CriminalDao;
-import fi.eriran.graphqltraining.main.pojo.Criminal;
+import fi.eriran.criminalapi.main.dao.CriminalDao;
+import fi.eriran.criminalapi.main.pojo.Criminal;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 

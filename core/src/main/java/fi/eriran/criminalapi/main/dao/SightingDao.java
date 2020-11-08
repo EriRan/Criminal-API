@@ -1,6 +1,6 @@
-package fi.eriran.graphqltraining.main.dao;
+package fi.eriran.criminalapi.main.dao;
 
-import fi.eriran.graphqltraining.main.pojo.Sighting;
+import fi.eriran.criminalapi.main.pojo.Sighting;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

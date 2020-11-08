@@ -5,15 +5,15 @@
 
     <parent>
         <groupId>fi.eriran</groupId>
-        <artifactId>graphqltraining</artifactId>
+        <artifactId>criminal-api</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jooq</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>graphql-training-jooq</name>
-    <description>Module for generating JOOQ classes for graphqltraining core module</description>
+    <name>Criminal API JOOQ</name>
+    <description>Module for generating JOOQ classes for criminal api core module</description>
 
     <dependencies>
         <dependency>
