@@ -4,6 +4,7 @@ import com.google.common.io.Resources;
 import fi.eriran.graphqltraining.main.resolver.ChargeResolver;
 import fi.eriran.graphqltraining.main.resolver.Mutation;
 import fi.eriran.graphqltraining.main.resolver.Query;
+import fi.eriran.graphqltraining.main.resolver.SightingResolver;
 import graphql.GraphQL;
 import graphql.kickstart.tools.SchemaParser;
 import graphql.schema.GraphQLSchema;
@@ -27,6 +28,8 @@ public class GraphQLProvider {
     private Mutation mutation;
     @Autowired
     private ChargeResolver chargeResolver;
+    @Autowired
+    private SightingResolver sightingResolver;
 
     @PostConstruct
     public void init() throws IOException {
@@ -40,7 +43,7 @@ public class GraphQLProvider {
     private GraphQLSchema buildSchema(String content) {
         return SchemaParser.newParser()
                 .schemaString(content)
-                .resolvers(query, mutation, chargeResolver)
+                .resolvers(query, mutation, chargeResolver, sightingResolver)
                 .build()
                 .makeExecutableSchema();
     }
