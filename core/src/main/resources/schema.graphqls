@@ -11,11 +11,20 @@ type Criminal {
   name: String!
   appearance: String!
   charges: [Charge]
+  sightings: [Sighting]
 }
 
 type Charge {
   id: ID!
   description: String!
+}
+
+type Sighting {
+  id: ID!
+  area: String
+  address: String
+  description: String
+  timeOfSighting: String!
 }
 
 schema {

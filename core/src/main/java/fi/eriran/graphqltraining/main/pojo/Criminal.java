@@ -14,9 +14,11 @@ public class Criminal {
     @Column(name = "appearance")
     private String appearance;
     private Collection<Charge> charges;
+    private Collection<Sighting> sightings;
 
     public Criminal() {
         charges = new ArrayList<>();
+        sightings = new ArrayList<>();
     }
 
     public Integer getId() {
@@ -49,5 +51,13 @@ public class Criminal {
 
     public void setCharges(Collection<Charge> charges) {
         this.charges = charges;
+    }
+
+    public Collection<Sighting> getSightings() {
+        return sightings;
+    }
+
+    public void setSightings(Collection<Sighting> sightings) {
+        this.sightings = sightings;
     }
 }
