@@ -1,3 +1,5 @@
+scalar DateTime
+
 type Query {
   criminalById(id: ID!): Criminal
 }
@@ -24,7 +26,7 @@ type Sighting {
   area: String
   address: String
   description: String
-  timeOfSighting: String!
+  timeOfSighting: DateTime!
 }
 
 schema {
