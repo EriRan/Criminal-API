@@ -1,18 +1,25 @@
 package fi.eriran.criminalapi;
 
+import fi.eriran.criminalapi.main.GraphQLProvider;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @TestPropertySource(
         locations = "classpath:hikari.properties"
 )
-class ApplicationTests {
+class SmokeTest {
+
+	@Autowired
+	private GraphQLProvider graphQLProvider;
 
 	@Test
 	void contextLoads() {
-		//Just check that the Spring is able to initialize
+		assertNotNull(graphQLProvider);
 	}
 
 }
