@@ -35,6 +35,8 @@ class CriminalQueryTest {
                 .postForResource(new QueryFilePathProvider().provide("fullCriminal"));
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
+        //todo: when calling the real api, it will return the timestamp in UTC but in the GraphQLTestTemplate it is
+        // returns it with timezone added into the utc time. The expected response is here is the one from testTemplate
         JSONAssert.assertEquals(readFile("fullCriminal"), response.getRawResponse().getBody(), true);
     }
 
