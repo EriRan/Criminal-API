@@ -3,6 +3,7 @@ package fi.eriran.criminalapi;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
+import fi.eriran.criminalapi.testutil.QueryFilePathProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,7 +25,7 @@ class CriminalQueryTest {
     @Test
     void runQuery() throws IOException {
         GraphQLResponse response = testTemplate
-                .postForResource("graphql/query/fullCriminal.query");
+                .postForResource(new QueryFilePathProvider().provide("fullCriminal"));
         assertNotNull(response);
     }
 }
