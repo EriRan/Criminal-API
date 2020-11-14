@@ -66,7 +66,7 @@ INSERT INTO criminal.criminal
 VALUES('Slick Joe', 'Handsome face, white mohawk, red shirt with a text "Ouch!" on it');
 INSERT INTO criminal.criminal
 ("name", appearance)
-VALUES('Robert von Lomboc', 'Slim stature. Always wearing white English judge wig');
+VALUES('Robert von Lomboc', 'Slim stature. Always wearing a white English judge wig');
 
 INSERT INTO criminal.charge
 (description, criminal_id, crime_type_id, charged_at)
@@ -91,4 +91,5 @@ VALUES(2, 'London', '10 South Bulevard', 'Bought a donut', '2019-01-01');
 
 INSERT INTO criminal.sighting
 (criminal_id, area, address, description, time_of_sighting)
-VALUES(3, 'Helsinki', 'Albertinkatu 3', 'Spoke with a stranger before detectives losing sight of him', '2020-03-01');
+VALUES(3, 'Helsinki', 'Albertinkatu 3', 'Spoke with a stranger before the detectives lost sight of him', '2020-03-01')
+;
