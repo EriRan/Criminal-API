@@ -1,6 +1,6 @@
 package fi.eriran.criminalapi;
 
-import fi.eriran.criminalapi.main.GraphQLProvider;
+import fi.eriran.criminalapi.main.dao.CriminalDao;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class SmokeTest {
 
 	@Autowired
-	private GraphQLProvider graphQLProvider;
+	private CriminalDao criminalDao;
 
 	@Test
 	void contextLoads() {
-		assertNotNull(graphQLProvider);
+		assertNotNull(criminalDao);
 	}
 
 }
