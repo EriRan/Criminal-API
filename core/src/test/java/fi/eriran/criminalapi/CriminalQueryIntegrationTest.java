@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @TestPropertySource(
         locations = "classpath:hikari.properties"
 )
-class CriminalQueryTest {
+class CriminalQueryIntegrationTest {
 
     @Autowired
     private GraphQLTestTemplate testTemplate;
