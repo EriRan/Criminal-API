@@ -1,7 +1,7 @@
 package fi.eriran.criminalapi.main;
 
 import com.google.common.io.Resources;
-import fi.eriran.criminalapi.main.resolver.AdditionalScalars;
+import fi.eriran.criminalapi.configuration.ScalarConfiguration;
 import fi.eriran.criminalapi.main.resolver.ChargeResolver;
 import fi.eriran.criminalapi.main.resolver.Mutation;
 import fi.eriran.criminalapi.main.resolver.Query;
@@ -28,11 +28,12 @@ public class GraphQLProvider {
     @Autowired
     private Mutation mutation;
     @Autowired
-    private AdditionalScalars additionalScalars;
-    @Autowired
     private ChargeResolver chargeResolver;
     @Autowired
     private SightingResolver sightingResolver;
+
+    @Autowired
+    private ScalarConfiguration scalarConfiguration;
 
     @PostConstruct
     public void init() throws IOException {
@@ -47,7 +48,7 @@ public class GraphQLProvider {
         return SchemaParser.newParser()
                 .schemaString(content)
                 .resolvers(query, mutation, chargeResolver, sightingResolver)
-                .scalars(additionalScalars.provideScalars())
+                .scalars(scalarConfiguration.dateTime())
                 .build()
                 .makeExecutableSchema();
     }
