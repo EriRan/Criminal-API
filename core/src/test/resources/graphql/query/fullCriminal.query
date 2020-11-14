@@ -1,0 +1,16 @@
+{
+    criminalById(id: "1") {
+        id
+        name
+        appearance
+        charges {
+            id
+            description
+        }
+        sightings {
+            id
+            description
+            timeOfSighting
+        }
+    }
+}
