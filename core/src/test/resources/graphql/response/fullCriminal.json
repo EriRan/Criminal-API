@@ -14,12 +14,12 @@
         {
           "id": "1",
           "description": "Seen buying a bagel",
-          "timeOfSighting": "2020-11-01T00:00:00Z"
+          "timeOfSighting": "2020-11-01T12:13:00Z"
         },
         {
           "id": "2",
           "description": "Loitering at Macy's",
-          "timeOfSighting": "2020-05-01T00:00:00Z"
+          "timeOfSighting": "2020-05-01T12:13:00Z"
         }
       ]
     }

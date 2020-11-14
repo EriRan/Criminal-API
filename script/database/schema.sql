@@ -80,16 +80,15 @@ VALUES('Financial crimes', 3, 1, '2020-11-01');
 
 INSERT INTO criminal.sighting
 (criminal_id, area, address, description, time_of_sighting)
-VALUES(1, 'New York', '23 South Bulevard', 'Seen buying a bagel', '2020-11-01');
+VALUES(1, 'New York', '23 South Bulevard', 'Seen buying a bagel', '2020-11-01T12:13:00');
 INSERT INTO criminal.sighting
 (criminal_id, area, address, description, time_of_sighting)
-VALUES(1, 'New York', '10 South Bulevard', E'Loitering at Macy\'s', '2020-05-01');
+VALUES(1, 'New York', '10 South Bulevard', E'Loitering at Macy\'s', '2020-05-01T12:13:00');
 
 INSERT INTO criminal.sighting
 (criminal_id, area, address, description, time_of_sighting)
-VALUES(2, 'London', '10 South Bulevard', 'Bought a donut', '2019-01-01');
+VALUES(2, 'London', '10 South Bulevard', 'Bought a donut', '2019-01-01T12:13:00');
 
 INSERT INTO criminal.sighting
 (criminal_id, area, address, description, time_of_sighting)
-VALUES(3, 'Helsinki', 'Albertinkatu 3', 'Spoke with a stranger before the detectives lost sight of him', '2020-03-01')
-;
+VALUES(3, 'Helsinki', 'Albertinkatu 3', 'Spoke with a stranger before the detectives lost sight of him', '2020-03-01T12:13:00');
