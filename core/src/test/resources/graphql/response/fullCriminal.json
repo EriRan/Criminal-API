@@ -1,0 +1,27 @@
+{
+  "data": {
+    "criminalById": {
+      "id": "1",
+      "name": "Osama bin Laden",
+      "appearance": "Long black beard",
+      "charges": [
+        {
+          "id": "1",
+          "description": "Terrorism"
+        }
+      ],
+      "sightings": [
+        {
+          "id": "1",
+          "description": "Seen buying a bagel",
+          "timeOfSighting": "2020-11-01T00:00:00Z"
+        },
+        {
+          "id": "2",
+          "description": "Loitering at Macy's",
+          "timeOfSighting": "2020-05-01T00:00:00Z"
+        }
+      ]
+    }
+  }
+}
