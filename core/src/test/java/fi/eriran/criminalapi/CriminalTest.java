@@ -1,8 +1,6 @@
 package fi.eriran.criminalapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.k0kubun.builder.query.graphql.GraphQL;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -44,7 +42,7 @@ class CriminalTest {
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        Criminal criminal = GraphQLResponseDeserializer.deserialize(response, "criminalById", Criminal.class);
+        Criminal criminal = GraphQLResponseDeserializer.deserialize(response, Criminal.class);
 
         assertNotNull(criminal);
         assertNotNull(criminal.getId());
