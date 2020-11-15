@@ -4,7 +4,9 @@ import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import fi.eriran.criminalapi.configuration.ScalarConfiguration;
+import fi.eriran.criminalapi.main.dao.ChargeDao;
 import fi.eriran.criminalapi.main.dao.CriminalDao;
+import fi.eriran.criminalapi.main.dao.SightingDao;
 import fi.eriran.criminalapi.main.pojo.Criminal;
 import fi.eriran.criminalapi.main.resolver.ChargeResolver;
 import fi.eriran.criminalapi.main.resolver.Mutation;
@@ -27,15 +29,11 @@ import static org.mockito.Mockito.when;
 class CriminalResponseTest {
 
     @MockBean
-    private Query query;
-    @MockBean
-    private Mutation mutation;
-    @MockBean
-    private ChargeResolver chargeResolver;
-    @MockBean
-    private SightingResolver sightingResolver;
-    @MockBean
     private CriminalDao criminalDao;
+    @MockBean
+    private ChargeDao chargeDao;
+    @MockBean
+    private SightingDao sightingDao;
     @MockBean
     private ScalarConfiguration scalarConfiguration;
 
