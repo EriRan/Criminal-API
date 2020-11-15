@@ -100,6 +100,11 @@
             <version>8.0.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.k0kubun</groupId>
+            <artifactId>graphql-query-builder</artifactId>
+            <version>0.2.2</version>
+        </dependency>
     </dependencies>
 
     <build>
