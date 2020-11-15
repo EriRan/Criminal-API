@@ -8,10 +8,6 @@ import fi.eriran.criminalapi.main.dao.ChargeDao;
 import fi.eriran.criminalapi.main.dao.CriminalDao;
 import fi.eriran.criminalapi.main.dao.SightingDao;
 import fi.eriran.criminalapi.main.pojo.Criminal;
-import fi.eriran.criminalapi.main.resolver.ChargeResolver;
-import fi.eriran.criminalapi.main.resolver.Mutation;
-import fi.eriran.criminalapi.main.resolver.Query;
-import fi.eriran.criminalapi.main.resolver.SightingResolver;
 import fi.eriran.criminalapi.testutil.QueryFilePathProvider;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -24,6 +20,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
+/**
+ * GraphQLTest does not seem to work when custom scalars have been added. It is unable to find them from the
+ * configuration class I made.
+ */
 @Disabled
 @GraphQLTest
 class CriminalResponseTest {
