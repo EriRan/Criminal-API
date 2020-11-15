@@ -2,18 +2,16 @@ package fi.eriran.criminalapi;
 
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
-import fi.eriran.criminalapi.testutil.QueryFilePathProvider;
-import fi.eriran.criminalapi.testutil.ResponseFilePathProvider;
+import fi.eriran.criminalapi.testutil.filepath.QueryFilePathProvider;
+import fi.eriran.criminalapi.testutil.filepath.ResponseFilePathProvider;
 import fi.eriran.criminalapi.testutil.annotation.CriminalApiSpringBootTest;
 import io.micrometer.core.instrument.util.IOUtils;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.TestPropertySource;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.testutil;
+package fi.eriran.criminalapi.testutil.filepath;
 
 public class ResponseFilePathProvider extends FilePathProvider {
 

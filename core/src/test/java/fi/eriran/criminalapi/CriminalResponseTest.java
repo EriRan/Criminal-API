@@ -8,7 +8,7 @@ import fi.eriran.criminalapi.main.dao.ChargeDao;
 import fi.eriran.criminalapi.main.dao.CriminalDao;
 import fi.eriran.criminalapi.main.dao.SightingDao;
 import fi.eriran.criminalapi.main.pojo.Criminal;
-import fi.eriran.criminalapi.testutil.QueryFilePathProvider;
+import fi.eriran.criminalapi.testutil.filepath.QueryFilePathProvider;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
