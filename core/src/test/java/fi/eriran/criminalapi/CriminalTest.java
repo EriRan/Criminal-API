@@ -8,6 +8,7 @@ import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import fi.eriran.criminalapi.main.pojo.Criminal;
 import fi.eriran.criminalapi.testutil.annotation.CriminalApiSpringBootTest;
+import fi.eriran.criminalapi.testutil.deserialization.GraphQLResponseDeserializer;
 import fi.eriran.criminalapi.testutil.query.GraphQLQueryBuilderProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +44,7 @@ class CriminalTest {
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode jsonNode = mapper.readTree(response.getRawResponse().getBody());
-        JsonNode responseData = jsonNode.get("data").get("criminalById");
-
-        Criminal criminal = mapper.readValue(responseData.toString(), Criminal.class);
+        Criminal criminal = GraphQLResponseDeserializer.deserialize(response, "criminalById", Criminal.class);
 
         assertNotNull(criminal);
         assertNotNull(criminal.getId());
