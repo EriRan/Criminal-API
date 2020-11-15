@@ -8,6 +8,7 @@ import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import fi.eriran.criminalapi.main.pojo.Criminal;
 import fi.eriran.criminalapi.testutil.annotation.CriminalApiSpringBootTest;
+import fi.eriran.criminalapi.testutil.query.GraphQLQueryBuilderProvider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,14 +32,14 @@ class CriminalTest {
 
 
         GraphQLResponse response = testTemplate
-                .postMultipart("{" +
-                        GraphQL.createQueryBuilder()
+                .postMultipart(
+                        GraphQLQueryBuilderProvider.createQuery()
                                 .object("criminalById", criminalParams, GraphQL.createObjectBuilder()
                                         .field("id")
                                         .field("name")
                                         .field("appearance")
                                         .build())
-                                .build() + "}",
+                                .build(),
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
