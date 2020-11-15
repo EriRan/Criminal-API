@@ -4,6 +4,7 @@ import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import fi.eriran.criminalapi.testutil.QueryFilePathProvider;
 import fi.eriran.criminalapi.testutil.ResponseFilePathProvider;
+import fi.eriran.criminalapi.testutil.annotation.CriminalApiSpringBootTest;
 import io.micrometer.core.instrument.util.IOUtils;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;
@@ -20,10 +21,7 @@ import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(
-        locations = "classpath:hikari.properties"
-)
+@CriminalApiSpringBootTest
 class CriminalQueryIntegrationTest {
 
     @Autowired
