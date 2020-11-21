@@ -132,6 +132,7 @@ class CriminalTest {
                                                 .field("description")
                                                 .field("timeOfSighting")
                                                 .field("address")
+                                                .field("area")
                                                 .build())
                                         .build())
                                 .build(),
