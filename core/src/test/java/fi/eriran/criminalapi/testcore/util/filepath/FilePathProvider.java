@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.testutil.filepath;
+package fi.eriran.criminalapi.testcore.util.filepath;
 
 abstract class FilePathProvider {
 

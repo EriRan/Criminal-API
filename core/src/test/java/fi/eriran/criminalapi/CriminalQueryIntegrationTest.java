@@ -2,9 +2,9 @@ package fi.eriran.criminalapi;
 
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
-import fi.eriran.criminalapi.testutil.filepath.QueryFilePathProvider;
-import fi.eriran.criminalapi.testutil.filepath.ResponseFilePathProvider;
-import fi.eriran.criminalapi.testutil.annotation.CriminalApiSpringBootTest;
+import fi.eriran.criminalapi.testcore.util.filepath.QueryFilePathProvider;
+import fi.eriran.criminalapi.testcore.util.filepath.ResponseFilePathProvider;
+import fi.eriran.criminalapi.testcore.annotation.CriminalApiSpringBootTest;
 import io.micrometer.core.instrument.util.IOUtils;
 import org.json.JSONException;
 import org.junit.jupiter.api.Test;

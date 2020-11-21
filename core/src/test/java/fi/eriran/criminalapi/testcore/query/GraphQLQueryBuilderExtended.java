@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.testutil.query;
+package fi.eriran.criminalapi.testcore.query;
 
 import com.github.k0kubun.builder.query.graphql.builder.GraphQLQueryBuilder;
 import com.github.k0kubun.builder.query.graphql.model.GraphQLField;

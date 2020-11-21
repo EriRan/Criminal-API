@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.testutil.annotation;
+package fi.eriran.criminalapi.testcore.annotation;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;

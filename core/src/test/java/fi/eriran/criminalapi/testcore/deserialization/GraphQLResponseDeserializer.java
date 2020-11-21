@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.testutil.deserialization;
+package fi.eriran.criminalapi.testcore.deserialization;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
