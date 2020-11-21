@@ -104,6 +104,7 @@
             <groupId>com.github.k0kubun</groupId>
             <artifactId>graphql-query-builder</artifactId>
             <version>0.3.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
