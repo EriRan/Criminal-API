@@ -8,7 +8,7 @@ import com.graphql.spring.boot.test.GraphQLResponse;
 public class GraphQLResponseDeserializer {
 
     public static <T> T deserialize(GraphQLResponse response, Class<T> targetClass) throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
         JsonNode jsonNode = mapper.readTree(response.getRawResponse().getBody());
         return mapper.readValue(findQueryResultNode(jsonNode).toString(), targetClass);
     }
