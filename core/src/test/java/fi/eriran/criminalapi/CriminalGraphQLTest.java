@@ -26,7 +26,7 @@ import static org.mockito.Mockito.when;
  */
 @Disabled
 @GraphQLTest
-class CriminalResponseTest {
+class CriminalGraphQLTest {
 
     @MockBean
     private CriminalDao criminalDao;
