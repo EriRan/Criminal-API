@@ -1,13 +1,11 @@
 package fi.eriran.criminalapi;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.github.k0kubun.builder.query.graphql.GraphQL;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import fi.eriran.criminalapi.main.pojo.Criminal;
 import fi.eriran.criminalapi.testcore.annotation.CriminalApiSpringBootTest;
 import fi.eriran.criminalapi.testcore.deserialization.GraphQLResponseDeserializer;
-import fi.eriran.criminalapi.testcore.query.GraphQLQueryBuilderProvider;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
@@ -17,6 +15,9 @@ import org.springframework.http.HttpStatus;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.object;
+import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.query;
+import static fi.eriran.criminalapi.testcore.query.GraphQLQueryBuilderJsonWrapper.wrap;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -35,13 +36,15 @@ class CriminalTest {
 
         GraphQLResponse response = testTemplate
                 .postMultipart(
-                        GraphQLQueryBuilderProvider.createQuery()
-                                .object("criminalById", criminalParams, GraphQL.createObjectBuilder()
-                                        .field("id")
-                                        .field("name")
-                                        .field("appearance")
-                                        .build())
-                                .build(),
+                        wrap(
+                                query()
+                                        .object("criminalById", criminalParams, object()
+                                                .field("id")
+                                                .field("name")
+                                                .field("appearance")
+                                                .build())
+                                        .build()
+                        ),
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -64,11 +67,13 @@ class CriminalTest {
         //Just give me the name of the man!!!
         GraphQLResponse response = testTemplate
                 .postMultipart(
-                        GraphQLQueryBuilderProvider.createQuery()
-                                .object("criminalById", criminalParams, GraphQL.createObjectBuilder()
-                                        .field("name")
-                                        .build())
-                                .build(),
+                        wrap(
+                                query()
+                                        .object("criminalById", criminalParams, object()
+                                                .field("name")
+                                                .build())
+                                        .build()
+                        ),
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -90,17 +95,19 @@ class CriminalTest {
 
         GraphQLResponse response = testTemplate
                 .postMultipart(
-                        GraphQLQueryBuilderProvider.createQuery()
-                                .object("criminalById", criminalParams, GraphQL.createObjectBuilder()
-                                        .field("id")
-                                        .field("name")
-                                        .field("appearance")
-                                        .object("charges", GraphQL.createObjectBuilder()
+                        wrap(
+                                query()
+                                        .object("criminalById", criminalParams, object()
                                                 .field("id")
-                                                .field("description")
+                                                .field("name")
+                                                .field("appearance")
+                                                .object("charges", object()
+                                                        .field("id")
+                                                        .field("description")
+                                                        .build())
                                                 .build())
-                                        .build())
-                                .build(),
+                                        .build()
+                        ),
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
@@ -122,20 +129,22 @@ class CriminalTest {
 
         GraphQLResponse response = testTemplate
                 .postMultipart(
-                        GraphQLQueryBuilderProvider.createQuery()
-                                .object("criminalById", criminalParams, GraphQL.createObjectBuilder()
-                                        .field("id")
-                                        .field("name")
-                                        .field("appearance")
-                                        .object("sightings", GraphQL.createObjectBuilder()
+                        wrap(
+                                query()
+                                        .object("criminalById", criminalParams, object()
                                                 .field("id")
-                                                .field("description")
-                                                .field("timeOfSighting")
-                                                .field("address")
-                                                .field("area")
+                                                .field("name")
+                                                .field("appearance")
+                                                .object("sightings", object()
+                                                        .field("id")
+                                                        .field("description")
+                                                        .field("timeOfSighting")
+                                                        .field("address")
+                                                        .field("area")
+                                                        .build())
                                                 .build())
-                                        .build())
-                                .build(),
+                                        .build()
+                        ),
                         "{}");
         assertNotNull(response);
         assertEquals(HttpStatus.OK, response.getStatusCode());
