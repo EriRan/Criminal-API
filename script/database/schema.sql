@@ -43,6 +43,18 @@ CREATE TABLE criminal.sighting (
 );
 COMMENT ON TABLE criminal.sighting IS 'Locations where a criminal has been spotted';
 
+CREATE TABLE criminal."user" (
+	id serial NOT NULL,
+	username varchar(500) NOT NULL,
+	"password" varchar(500) NOT NULL,
+	created_at timestamptz(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT user_pk PRIMARY KEY (id),
+	CONSTRAINT user_un UNIQUE (username)
+);
+CREATE INDEX user_username_idx ON criminal."user" (username);
+COMMENT ON TABLE criminal."user" IS 'Stores usernames and their passwords';
+
+
 -- Initial data
 
 INSERT INTO criminal.crime_type
