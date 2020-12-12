@@ -8,9 +8,17 @@ import fi.eriran.criminalapi.testcore.annotation.CriminalApiSpringBootTest;
 import fi.eriran.criminalapi.testcore.deserialization.GraphQLResponseDeserializer;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,21 +27,27 @@ import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.objec
 import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.query;
 import static fi.eriran.criminalapi.testcore.query.GraphQLQueryBuilderJsonWrapper.wrap;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Ensure that queries and the response deserialization works correctly for Criminal related objects
  */
+@ExtendWith(SpringExtension.class)
 @CriminalApiSpringBootTest
 class CriminalTest {
 
     @Autowired
+    private WebApplicationContext context;
+    @Autowired
     private GraphQLTestTemplate testTemplate;
 
+    @WithMockUser(username = "spring")
     @Test
     void criminalVariablesFetched() throws JsonProcessingException {
         Map<String, Object> criminalParams = new HashMap<>();
         criminalParams.put("id", "1");
-
         GraphQLResponse response = testTemplate
                 .postMultipart(
                         wrap(
