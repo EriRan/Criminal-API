@@ -6,7 +6,6 @@ import fi.eriran.criminalapi.main.pojo.user.NewUser;
 import fi.eriran.criminalapi.main.pojo.user.User;
 import fi.eriran.criminalapi.testcore.annotation.CriminalApiSpringBootTest;
 import fi.eriran.criminalapi.testcore.testdata.NewUserTestObjectFactory;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -31,7 +30,6 @@ class UserServiceTest {
     }
 
     @Test
-    @Disabled("Disabled until password hashing is added")
     void passwordHashed() {
         when(userDao.insert(any())).thenReturn(new User());
         NewUser newUser = testObjectFactory.create();
