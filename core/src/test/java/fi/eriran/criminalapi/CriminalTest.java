@@ -43,24 +43,6 @@ class CriminalTest {
     @Autowired
     private GraphQLTestTemplate testTemplate;
 
-    private MockMvc mockMvc;
-
-    @BeforeEach
-    public void setup() {
-        mockMvc = MockMvcBuilders
-                .webAppContextSetup(context)
-                .apply(springSecurity())
-                .build();
-    }
-
-    @WithMockUser(username = "spring")
-    @Test
-    void securityTest() throws Exception {
-        mockMvc.perform(
-            get("/graphql").contentType(MediaType.APPLICATION_JSON)
-        ).andExpect(status().isOk());
-    }
-
     @WithMockUser(username = "spring")
     @Test
     void criminalVariablesFetched() throws JsonProcessingException {
