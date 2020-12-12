@@ -12,7 +12,7 @@ import java.net.URI;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @CriminalApiSpringBootTest
-class LoginControllerTest {
+class GreetingControllerTest {
 
     @Autowired
     private TestRestTemplate testRestTemplate;
