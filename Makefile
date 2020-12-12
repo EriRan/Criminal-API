@@ -1,5 +1,7 @@
 run: start-database build-api
 
+run-without-tests: start-database build-api-skip-test
+
 init: build-database build-api
 
 reset: stop-containers
@@ -10,6 +12,11 @@ stop: stop-containers
 build-api:
 	./mvnw clean
 	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training
+	docker-compose up --detach --build api
+
+build-api-skip-test:
+	./mvnw clean
+	./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=graphql-training -DskipTests
 	docker-compose up --detach --build api
 
 build-database:
