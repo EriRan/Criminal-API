@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.main.resolver;
+package fi.eriran.criminalapi.main.graphql.resolver;
 
 import graphql.kickstart.tools.GraphQLMutationResolver;
 import org.springframework.stereotype.Component;

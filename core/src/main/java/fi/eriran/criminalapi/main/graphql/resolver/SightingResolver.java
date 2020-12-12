@@ -1,4 +1,4 @@
-package fi.eriran.criminalapi.main.resolver;
+package fi.eriran.criminalapi.main.graphql.resolver;
 
 import fi.eriran.criminalapi.main.dao.SightingDao;
 import fi.eriran.criminalapi.main.pojo.Criminal;
