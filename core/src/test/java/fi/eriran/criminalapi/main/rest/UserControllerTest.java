@@ -44,5 +44,4 @@ class UserControllerTest {
         assertNotNull(createdUser.getUsername());
         return createdUser;
     }
-
 }
