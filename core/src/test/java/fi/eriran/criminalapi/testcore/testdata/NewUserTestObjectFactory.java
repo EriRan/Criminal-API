@@ -13,7 +13,7 @@ public class NewUserTestObjectFactory {
 
     public NewUser create(String username) {
         NewUser newUser = new NewUser();
-        newUser.setUserName("Test");
+        newUser.setUserName(username);
         newUser.setPassword("moi123");
         return newUser;
     }
