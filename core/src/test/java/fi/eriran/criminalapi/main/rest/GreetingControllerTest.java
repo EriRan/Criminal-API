@@ -18,9 +18,16 @@ class GreetingControllerTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    void loginShouldReturnOk() {
+    void postEndpointShouldReturnOk() {
         ResponseEntity<String> response = testRestTemplate
-                .postForEntity(URI.create("/greeting"), null, String.class);
+                .postForEntity(URI.create("/greeting"), "unimportantBody", String.class);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    void getEndpointShouldReturnOk() {
+        ResponseEntity<String> response = testRestTemplate
+                .getForEntity(URI.create("/greeting"), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }
