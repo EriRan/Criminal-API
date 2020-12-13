@@ -3,7 +3,7 @@ package fi.eriran.criminalapi.main.rest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/greeting")
+@RequestMapping("api/v1/greeting")
 public class GreetingController {
 
     @GetMapping

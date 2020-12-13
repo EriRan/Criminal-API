@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/greeting/secured")
+@RequestMapping("api/v1/greeting/secured")
 public class SecuredGreetingController {
 
     @GetMapping

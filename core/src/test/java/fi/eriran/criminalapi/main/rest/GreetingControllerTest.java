@@ -20,14 +20,16 @@ class GreetingControllerTest {
     @Test
     void postEndpointShouldReturnOk() {
         ResponseEntity<String> response = testRestTemplate
-                .postForEntity(URI.create("/greeting"), "unimportantBody", String.class);
+                .withBasicAuth("support", "guy")
+                .postForEntity(URI.create("/api/v1/greeting"), "unimportantBody", String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
     @Test
     void getEndpointShouldReturnOk() {
         ResponseEntity<String> response = testRestTemplate
-                .getForEntity(URI.create("/greeting"), String.class);
+                .withBasicAuth("support", "guy")
+                .getForEntity(URI.create("/api/v1/greeting"), String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 }

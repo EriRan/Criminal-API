@@ -32,6 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/greeting")
                 .permitAll()
+                .antMatchers("/api/**").hasRole(SUPPORT.name())
+                .antMatchers("/graphql").hasRole(INVESTIGATOR.name())
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -42,13 +44,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Bean
     protected UserDetailsService userDetailsService() {
         UserDetails userDetails = User.builder()
-                .username("cool")
+                .username("investigator")
                 .password(passwordEncoder.encode("guy"))
                 .roles(INVESTIGATOR.name())
                 .build();
 
         UserDetails adminDetails = User.builder()
-                .username("admin")
+                .username("support")
                 .password(passwordEncoder.encode("guy"))
                 .roles(SUPPORT.name())
                 .build();
