@@ -1,11 +1,15 @@
 package fi.eriran.criminalapi.main.pojo.user;
 
+import javax.persistence.Column;
+
 /**
  * User object that contains the variables needed to create a new user
  */
 public class NewUser {
 
+    @Column(name = "username")
     private String userName;
+    @Column(name = "password")
     private String password;
 
     public String getUserName() {
