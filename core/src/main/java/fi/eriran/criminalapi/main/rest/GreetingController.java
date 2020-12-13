@@ -1,9 +1,6 @@
 package fi.eriran.criminalapi.main.rest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/greeting")
@@ -15,7 +12,7 @@ public class GreetingController {
     }
 
     @PostMapping
-    public String post() {
-        return "Hello Post!";
+    public String post(@RequestBody String greeting) {
+        return "Hello Post " + greeting;
     }
 }
