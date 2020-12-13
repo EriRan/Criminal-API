@@ -3,10 +3,7 @@ package fi.eriran.criminalapi.main.dao.user.query;
 import fi.eriran.criminalapi.main.dao.common.query.AbstractQuery;
 import fi.eriran.criminalapi.main.pojo.user.NewUser;
 import fi.eriran.generated.jooq.tables.records.UserRecord;
-import org.jooq.DSLContext;
-import org.jooq.InsertQuery;
-import org.jooq.SelectConditionStep;
-import org.jooq.UpdateConditionStep;
+import org.jooq.*;
 import org.springframework.stereotype.Component;
 
 import static fi.eriran.generated.jooq.tables.User.USER;
@@ -18,11 +15,11 @@ public class UserQuery extends AbstractQuery {
         super(ctx);
     }
 
-    public InsertQuery<UserRecord> insert(NewUser newUser) {
-        InsertQuery<UserRecord> insertQuery = ctx.insertQuery(USER);
-        insertQuery.addRecord(createInsertRecord(newUser));
-        insertQuery.setReturning();
-        return insertQuery;
+    public InsertResultStep<UserRecord> insert(NewUser newUser) {
+        return ctx.insertInto(USER)
+                .set(USER.USERNAME, newUser.getUserName())
+                .set(USER.PASSWORD, newUser.getPassword())
+                .returning();
     }
 
     public SelectConditionStep<UserRecord> select(Integer userId) {
@@ -31,12 +28,5 @@ public class UserQuery extends AbstractQuery {
 
     public UpdateConditionStep<UserRecord> updatePassword(Integer userId, String newPassword) {
         return ctx.update(USER).set(USER.PASSWORD, newPassword).where(USER.ID.eq(userId));
-    }
-
-    private UserRecord createInsertRecord(NewUser newUser) {
-        UserRecord userRecord = new UserRecord();
-        userRecord.setUsername(newUser.getUserName());
-        userRecord.setPassword(newUser.getPassword());
-        return userRecord;
     }
 }

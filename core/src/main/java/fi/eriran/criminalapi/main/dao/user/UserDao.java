@@ -4,7 +4,7 @@ import fi.eriran.criminalapi.main.dao.user.query.UserQuery;
 import fi.eriran.criminalapi.main.pojo.user.NewUser;
 import fi.eriran.criminalapi.main.pojo.user.User;
 import fi.eriran.generated.jooq.tables.records.UserRecord;
-import org.jooq.InsertQuery;
+import org.jooq.InsertResultStep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +15,8 @@ public class UserDao {
     private UserQuery userQuery;
 
     public User insert(NewUser newUser) {
-        InsertQuery<UserRecord> insertQuery = userQuery.insert(newUser);
-        insertQuery.execute();
-        return insertQuery.getReturnedRecord().into(User.class);
+        InsertResultStep<UserRecord> insertQuery = userQuery.insert(newUser);
+        return insertQuery.fetchOne().into(User.class);
     }
 
     public User select(Integer userId) {
