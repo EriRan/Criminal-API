@@ -19,4 +19,12 @@ public class UserDao {
         insertQuery.execute();
         return insertQuery.getReturnedRecord().into(User.class);
     }
+
+    public User select(Integer userId) {
+        return userQuery.select(userId).fetchOneInto(User.class);
+    }
+
+    public boolean updatePassword(Integer userId, String newPassword) {
+        return userQuery.updatePassword(userId, newPassword).execute() == 1;
+    }
 }

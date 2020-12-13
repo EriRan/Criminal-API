@@ -5,6 +5,8 @@ import fi.eriran.criminalapi.main.pojo.user.NewUser;
 import fi.eriran.generated.jooq.tables.records.UserRecord;
 import org.jooq.DSLContext;
 import org.jooq.InsertQuery;
+import org.jooq.SelectConditionStep;
+import org.jooq.UpdateConditionStep;
 import org.springframework.stereotype.Component;
 
 import static fi.eriran.generated.jooq.tables.User.USER;
@@ -21,6 +23,14 @@ public class UserQuery extends AbstractQuery {
         insertQuery.addRecord(createInsertRecord(newUser));
         insertQuery.setReturning();
         return insertQuery;
+    }
+
+    public SelectConditionStep<UserRecord> select(Integer userId) {
+        return ctx.selectFrom(USER).where(USER.ID.eq(userId));
+    }
+
+    public UpdateConditionStep<UserRecord> updatePassword(Integer userId, String newPassword) {
+        return ctx.update(USER).set(USER.PASSWORD, newPassword).where(USER.ID.eq(userId));
     }
 
     private UserRecord createInsertRecord(NewUser newUser) {
