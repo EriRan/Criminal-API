@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/user")
+@RequestMapping(path = "api/v1/user")
 public class UserController {
 
     @Autowired
@@ -20,7 +20,7 @@ public class UserController {
     }
 
     @PatchMapping(path = "/{id}")
-    public User changePassword(@PathVariable Integer userId, @RequestBody String newPassword) {
+    public User changePassword(@PathVariable("id") Integer userId, @RequestBody String newPassword) {
         return userService.changePassword(new ChangePassword(userId, newPassword));
     }
 }
