@@ -20,7 +20,6 @@ class GreetingControllerTest {
     @Test
     void loginShouldReturnOk() {
         ResponseEntity<String> response = testRestTemplate
-                .withBasicAuth("spring", "spring")
                 .postForEntity(URI.create("/greeting"), null, String.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
