@@ -12,6 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+import static fi.eriran.criminalapi.configuration.security.UserRole.INVESTIGATOR;
+import static fi.eriran.criminalapi.configuration.security.UserRole.SUPPORT;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -41,8 +44,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         UserDetails userDetails = User.builder()
                 .username("cool")
                 .password(passwordEncoder.encode("guy"))
-                .roles("USER").build();
+                .roles(INVESTIGATOR.name())
+                .build();
 
-        return new InMemoryUserDetailsManager(userDetails);
+        UserDetails adminDetails = User.builder()
+                .username("admin")
+                .password(passwordEncoder.encode("guy"))
+                .roles(SUPPORT.name())
+                .build();
+
+        return new InMemoryUserDetailsManager(
+                userDetails,
+                adminDetails
+        );
     }
 }
