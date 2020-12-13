@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingController {
 
     @GetMapping
-    public String getLogin() {
+    public String get() {
         return "Hey get!";
     }
 
     @PostMapping
-    public String login() {
+    public String post() {
         return "Hello Post!";
     }
 }
