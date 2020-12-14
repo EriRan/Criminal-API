@@ -1,22 +1,21 @@
 package fi.eriran.criminalapi.main.dao.user.query;
 
-import fi.eriran.criminalapi.main.dao.common.query.AbstractQuery;
 import fi.eriran.criminalapi.main.pojo.user.NewUser;
 import fi.eriran.generated.jooq.tables.records.UserRecord;
 import org.jooq.DSLContext;
 import org.jooq.InsertQuery;
 import org.jooq.SelectConditionStep;
 import org.jooq.UpdateConditionStep;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import static fi.eriran.generated.jooq.tables.User.USER;
 
 @Component
-public class UserQuery extends AbstractQuery {
+public class UserQuery {
 
-    protected UserQuery(DSLContext ctx) {
-        super(ctx);
-    }
+    @Autowired
+    private DSLContext ctx;
 
     public InsertQuery<UserRecord> insert(NewUser newUser) {
         InsertQuery<UserRecord> insertQuery = ctx.insertQuery(USER);
