@@ -19,7 +19,7 @@ public class UserQuery {
 
     public InsertQuery<UserRecord> insert(NewUser newUser) {
         InsertQuery<UserRecord> insertQuery = ctx.insertQuery(USER);
-        insertQuery.addRecord(createInsertRecord(newUser));
+        insertQuery.addRecord(ctx.newRecord(USER, newUser));
         insertQuery.setReturning();
         return insertQuery;
     }
@@ -30,12 +30,5 @@ public class UserQuery {
 
     public UpdateConditionStep<UserRecord> updatePassword(Integer userId, String newPassword) {
         return ctx.update(USER).set(USER.PASSWORD, newPassword).where(USER.ID.eq(userId));
-    }
-
-    private UserRecord createInsertRecord(NewUser newUser) {
-        UserRecord userRecord = new UserRecord();
-        userRecord.setUsername(newUser.getUserName());
-        userRecord.setPassword(newUser.getPassword());
-        return userRecord;
     }
 }
