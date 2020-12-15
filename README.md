@@ -3,7 +3,8 @@
 ## Requirements
 
 * make (to run build scripts more conveniently)
-* Docker (For the containers)
+* Maven (For building the application)
+* Docker (For running the containers)
 
 ## Quick start
 
