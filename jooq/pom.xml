@@ -15,15 +15,10 @@
     <name>Criminal API JOOQ</name>
     <description>Module for generating JOOQ classes for criminal api core module</description>
 
-    <properties>
-        <jooqVersion>3.14.4</jooqVersion>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.jooq</groupId>
             <artifactId>jooq</artifactId>
-            <version>${jooqVersion}</version>
         </dependency>
     </dependencies>
 
@@ -32,7 +27,6 @@
             <plugin>
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
-                <version>${jooqVersion}</version>
 
                 <!-- The plugin should hook into the generate goal -->
                 <executions>
@@ -69,7 +63,6 @@
                         <database>
                             <name>org.jooq.meta.postgres.PostgresDatabase</name>
                             <includes>.*</includes>
-                            <excludes></excludes>
                             <inputSchema>criminal</inputSchema>
                         </database>
                         <target>

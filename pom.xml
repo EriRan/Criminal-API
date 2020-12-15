@@ -28,4 +28,14 @@
         <module>core</module>
     </modules>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jooq</groupId>
+                <artifactId>jooq</artifactId>
+                <version>3.14.4</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>
