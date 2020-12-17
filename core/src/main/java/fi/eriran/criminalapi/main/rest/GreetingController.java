@@ -10,9 +10,4 @@ public class GreetingController {
     public String get() {
         return "Hey get!";
     }
-
-    @PostMapping
-    public String post(@RequestBody String greeting) {
-        return "Hello Post " + greeting;
-    }
 }

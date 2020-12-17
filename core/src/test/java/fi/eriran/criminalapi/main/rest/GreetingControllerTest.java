@@ -18,14 +18,6 @@ class GreetingControllerTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    void postEndpointShouldReturnOk() {
-        ResponseEntity<String> response = testRestTemplate
-                .withBasicAuth("support", "guy")
-                .postForEntity(URI.create("/api/v1/greeting"), "unimportantBody", String.class);
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
-
-    @Test
     void getEndpointShouldReturnOk() {
         ResponseEntity<String> response = testRestTemplate
                 .withBasicAuth("support", "guy")
