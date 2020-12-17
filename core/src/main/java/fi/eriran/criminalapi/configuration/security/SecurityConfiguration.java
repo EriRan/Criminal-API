@@ -3,6 +3,7 @@ package fi.eriran.criminalapi.configuration.security;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -33,8 +34,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/", "/greeting")
                 .permitAll()
-                .antMatchers("/api/**").hasRole(SUPPORT.name())
-                .antMatchers("/graphql").hasRole(INVESTIGATOR.name())
+                .antMatchers(HttpMethod.GET, "/api/**").hasAuthority(UserPermission.USER_READ.getPermission())
+                .antMatchers(HttpMethod.POST, "/api/**").hasAuthority(UserPermission.USER_CREATE.getPermission())
+                .antMatchers(HttpMethod.PATCH, "/api/**").hasAuthority(UserPermission.USER_MODIFY.getPermission())
+
+                .antMatchers(HttpMethod.POST, "/graphql")
+                .hasAuthority(UserPermission.CRIMINAL_READ.name())
+
                 .anyRequest()
                 .authenticated()
                 .and()
@@ -47,13 +53,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         UserDetails userDetails = User.builder()
                 .username("investigator")
                 .password(passwordEncoder.encode("guy"))
-                .roles(INVESTIGATOR.name())
+                .authorities(INVESTIGATOR.getGrantedAuthorities())
                 .build();
 
         UserDetails adminDetails = User.builder()
                 .username("support")
                 .password(passwordEncoder.encode("guy"))
-                .roles(SUPPORT.name())
+                .authorities(SUPPORT.getGrantedAuthorities())
                 .build();
 
         return new InMemoryUserDetailsManager(
