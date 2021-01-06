@@ -13,18 +13,16 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-/**
- * GraphQLTest does not seem to work when custom scalars have been added. It is unable to find them from the
- * configuration class I made.
- */
-@Disabled
+@Import(ScalarConfiguration.class)
 @GraphQLTest
 class CriminalGraphQLTest {
 
@@ -34,8 +32,6 @@ class CriminalGraphQLTest {
     private ChargeDao chargeDao;
     @MockBean
     private SightingDao sightingDao;
-    @MockBean
-    private ScalarConfiguration scalarConfiguration;
 
     @Autowired
     private GraphQLTestTemplate testTemplate;
@@ -43,6 +39,8 @@ class CriminalGraphQLTest {
     @Test
     void getOnlyCriminal() throws IOException {
         when(criminalDao.get(any())).thenReturn(new Criminal());
+        when(sightingDao.getSightings(any())).thenReturn(new ArrayList<>());
+        when(chargeDao.getCharges(any())).thenReturn(new ArrayList<>());
 
         GraphQLResponse response = testTemplate.postForResource(
                 new QueryFilePathProvider().provide("criminal")
