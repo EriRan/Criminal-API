@@ -3,23 +3,26 @@ package fi.eriran.criminalapi;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
+import fi.eriran.criminalapi.main.dao.ChargeDao;
+import fi.eriran.criminalapi.main.dao.CriminalDao;
+import fi.eriran.criminalapi.main.dao.SightingDao;
+import fi.eriran.criminalapi.main.pojo.Charge;
 import fi.eriran.criminalapi.main.pojo.Criminal;
-import fi.eriran.criminalapi.testcore.annotation.CriminalApiSpringBootTest;
+import fi.eriran.criminalapi.main.pojo.Sighting;
+import fi.eriran.criminalapi.testcore.annotation.CriminalApiGraphQLTest;
 import fi.eriran.criminalapi.testcore.deserialization.GraphQLResponseDeserializer;
+import fi.eriran.criminalapi.testcore.testdata.ChargeTestObjectFactory;
+import fi.eriran.criminalapi.testcore.testdata.CriminalTestObjectFactory;
+import fi.eriran.criminalapi.testcore.testdata.SightingTestObjectFactory;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,23 +30,45 @@ import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.objec
 import static com.github.k0kubun.builder.query.graphql.GraphQLQueryBuilder.query;
 import static fi.eriran.criminalapi.testcore.query.GraphQLQueryBuilderJsonWrapper.wrap;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.*;
 
 /**
  * Ensure that queries and the response deserialization works correctly for Criminal related objects
  */
-@ExtendWith(SpringExtension.class)
-@CriminalApiSpringBootTest
+@CriminalApiGraphQLTest
 class CriminalTest {
 
-    @Autowired
-    private WebApplicationContext context;
+    @MockBean
+    private CriminalDao criminalDao;
+    @MockBean
+    private ChargeDao chargeDao;
+    @MockBean
+    private SightingDao sightingDao;
+
     @Autowired
     private GraphQLTestTemplate testTemplate;
 
-    @WithMockUser(username = "spring")
+    @BeforeEach
+    public void initMocks() {
+        when(criminalDao.get(anyInt()))
+                .thenReturn(CriminalTestObjectFactory.create(1));
+        when(chargeDao.getCharges(anyInt()))
+                .thenReturn(
+                        Collections.singletonList(
+                                ChargeTestObjectFactory.create(1)
+                        )
+
+                );
+        when(sightingDao.getSightings(anyInt()))
+                .thenReturn(
+                        Collections.singletonList(
+                                SightingTestObjectFactory.create(1)
+                        )
+
+                );
+    }
+
     @Test
     void criminalVariablesFetched() throws JsonProcessingException {
         Map<String, Object> criminalParams = new HashMap<>();
