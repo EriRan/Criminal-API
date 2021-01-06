@@ -8,6 +8,7 @@ import fi.eriran.criminalapi.main.dao.ChargeDao;
 import fi.eriran.criminalapi.main.dao.CriminalDao;
 import fi.eriran.criminalapi.main.dao.SightingDao;
 import fi.eriran.criminalapi.main.pojo.Criminal;
+import fi.eriran.criminalapi.testcore.annotation.CriminalApiGraphQLTest;
 import fi.eriran.criminalapi.testcore.util.filepath.QueryFilePathProvider;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -22,8 +23,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
-@Import(ScalarConfiguration.class)
-@GraphQLTest
+@CriminalApiGraphQLTest
 class CriminalGraphQLTest {
 
     @MockBean
